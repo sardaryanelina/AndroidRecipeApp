@@ -7,4 +7,17 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    // Added colors for Recipes App
+<!-- https://m2.material.io/resources/color/#!/?view.left=0&view.right=1&primary.color=8a9976&secondary.color=6d201c-->
+    <color name="primaryColor">#8a9976</color>
+    <color name="primaryLightColor">#bacaa6</color>
+    <color name="primaryDarkColor">#5d6b4b</color>
+    <color name="primaryTextColor">#000000</color>
+
+    <color name="secondaryColor">#6d201c</color>
+    <color name="secondaryLightColor">#a04c43</color>
+    <color name="secondaryDarkColor">#3e0000</color>
+    <color name="secondaryTextColor">#ffffff</color>
+
 </resources>
