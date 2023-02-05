@@ -8,16 +8,24 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    // Added colors for Recipes App
+    // Added custom color combination for Recipes App
 <!-- https://m2.material.io/resources/color/#!/?view.left=0&view.right=1&primary.color=8a9976&secondary.color=6d201c-->
-    <color name="primaryColor">#8a9976</color>
-    <color name="primaryLightColor">#bacaa6</color>
-    <color name="primaryDarkColor">#5d6b4b</color>
-    <color name="primaryTextColor">#000000</color>
+    <color name="primary_color">#8a9976</color>
+    <color name="primary_light_color">#bacaa6</color>
+    <color name="primary_dark_color">#5d6b4b</color>
+    <color name="primary_text_color">#000000</color>
 
-    <color name="secondaryColor">#6d201c</color>
-    <color name="secondaryLightColor">#a04c43</color>
-    <color name="secondaryDarkColor">#3e0000</color>
-    <color name="secondaryTextColor">#ffffff</color>
+    <color name="secondary_color">#6d201c</color>
+    <color name="secondary_light_color">#a04c43</color>
+    <color name="secondary_dark_color">#3e0000</color>
+    <color name="secondary_text_color">#ffffff</color>
+
+    <!--Added color values -->
+    <color name="dish_image_background">#E1E1E1</color>
+    <color name="blue_grey_700">#37474f</color>
+    <color name="grey_900">#212121</color>
+    <color name="divider_line_color">#e0e0e0</color>
+    <color name="blue_grey_900">#263238</color>
+    <color name="grey_500">#9E9E9E</color>
 
 </resources>
