@@ -6,7 +6,9 @@
 
     <!--Added string values.-->
     <string name="splash_screen_title">Veg Eat</string>
-    <string name="action_add_dish">Add Dish</string>
+    <string name="action_add_recipe">Add Recipe</string>
+
+
     <string name="image_contentDescription">image</string>
     <string name="lbl_title">Title</string>
     <string name="lbl_type">Type</string>

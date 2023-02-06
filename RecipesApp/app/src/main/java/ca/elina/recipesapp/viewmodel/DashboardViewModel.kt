@@ -1,4 +1,4 @@
-package ca.elina.recipesapp.ui.dashboard
+package ca.elina.recipesapp.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

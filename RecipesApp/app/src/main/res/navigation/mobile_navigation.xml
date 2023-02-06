@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="ca.elina.recipesapp.ui.home.HomeFragment"
+        android:name="ca.elina.recipesapp.view.fragments.AllRecipesFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_all_recipes" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="ca.elina.recipesapp.ui.dashboard.DashboardFragment"
+        android:name="ca.elina.recipesapp.view.fragments.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="ca.elina.recipesapp.ui.notifications.NotificationsFragment"
+        android:name="ca.elina.recipesapp.view.fragments.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 </navigation>
