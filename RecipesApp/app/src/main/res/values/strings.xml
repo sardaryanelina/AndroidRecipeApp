@@ -15,11 +15,11 @@
     <string name="lbl_ingredients">Ingredients</string>
     <string name="lbl_cooking_time_in_minutes">Cooking Time In Minutes</string>
     <string name="lbl_direction_to_cook">Direction To Cook</string>
-
-
     <string name="title_select_image_action">Select Image Action</string>
     <string name="lbl_camera">Camera</string>
     <string name="lbl_gallery">Gallery</string>
+
+
     <string name="title_select_dish_type">SELECT DISH TYPE</string>
     <string name="title_select_dish_category">SELECT DISH CATEGORY</string>
     <string name="title_select_dish_cooking_time">SELECT COOKING TIME IN MINUTES</string>
