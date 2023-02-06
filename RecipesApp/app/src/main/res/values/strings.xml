@@ -7,8 +7,7 @@
     <!--Added string values.-->
     <string name="splash_screen_title">Veg Eat</string>
     <string name="action_add_recipe">Add Recipe</string>
-
-
+    <string name="lbl_add_recipe">ADD RECIPE</string>
     <string name="image_contentDescription">image</string>
     <string name="lbl_title">Title</string>
     <string name="lbl_type">Type</string>
@@ -16,7 +15,8 @@
     <string name="lbl_ingredients">Ingredients</string>
     <string name="lbl_cooking_time_in_minutes">Cooking Time In Minutes</string>
     <string name="lbl_direction_to_cook">Direction To Cook</string>
-    <string name="lbl_add_dish">ADD DISH</string>
+
+
     <string name="title_select_image_action">Select Image Action</string>
     <string name="lbl_camera">Camera</string>
     <string name="lbl_gallery">Gallery</string>
