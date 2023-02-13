@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 
     // Apply the "kapt" plugin
+    // https://kotlinlang.org/docs/kapt.html
+    // VS annotationProcessor
     id 'kotlin-kapt'
 
     // Apply the plugin to navigate with auto generated classes and pass the arguments.
