@@ -6,20 +6,20 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import ca.elina.recipesapp.R
+import coil.load
 
 
 class RecipesRowBinding {
 
     companion object {
-
-//        @BindingAdapter("loadImageFromUrl")
-//        @JvmStatic
-//        fun loadImageFromUrl(imageView: ImageView, imageUrl: String) {
-//            imageView.load(imageUrl) {
-//                crossfade(600)
-//                error(R.drawable.ic_error_placeholder)
-//            }
-//        }
+        @BindingAdapter("loadImageFromUrl")
+        @JvmStatic
+        fun loadImageFromUrl(imageView: ImageView, imageUrl: String) {
+            imageView.load(imageUrl) {
+                crossfade(600)
+                error(R.drawable.ic_error_placeholder)
+            }
+        }
 
         @BindingAdapter("setNumberOfLikes")
         @JvmStatic
@@ -57,7 +57,5 @@ class RecipesRowBinding {
                 }
             }
         }
-
     }
-
 }
