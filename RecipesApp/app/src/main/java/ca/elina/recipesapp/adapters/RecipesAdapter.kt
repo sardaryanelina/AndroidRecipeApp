@@ -2,10 +2,12 @@ package ca.elina.recipesapp.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import ca.elina.recipesapp.databinding.RecipesRowLayoutBinding
 import ca.elina.recipesapp.models.FoodRecipe
 import ca.elina.recipesapp.models.Result
+import ca.elina.recipesapp.util.RecipesDiffUtil
 
 
 class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.MyViewHolder>() {
@@ -44,7 +46,12 @@ class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.MyViewHolder>() {
     }
 
     fun setData(newData: FoodRecipe) {
+        val recipesDiffUtil =
+            RecipesDiffUtil(recipes, newData.results)
+        val diffUtilResult = DiffUtil.calculateDiff(recipesDiffUtil)
         recipes = newData.results
-        notifyDataSetChanged() // notify recycler view adapter to update the views with new data received
+        // this will update only the views that are not the same
+        // and it will increase the performance of the application
+        diffUtilResult.dispatchUpdatesTo(this)
     }
 }
