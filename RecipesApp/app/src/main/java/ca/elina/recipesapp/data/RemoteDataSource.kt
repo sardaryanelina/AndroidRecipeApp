@@ -1,7 +1,7 @@
 package ca.elina.recipesapp.data
 
 import ca.elina.recipesapp.data.network.FoodRecipesApi
-import com.example.foody.models.FoodRecipe
+import ca.elina.recipesapp.models.FoodRecipe
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -12,5 +12,4 @@ class RemoteDataSource @Inject constructor(private val foodRecipesApi: FoodRecip
     suspend fun getRecipes(queries: Map<String, String>): Response<FoodRecipe> {
         return foodRecipesApi.getRecipes(queries)
     }
-
 }

@@ -6,8 +6,8 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import androidx.lifecycle.*
 import ca.elina.recipesapp.data.Repository
+import ca.elina.recipesapp.models.FoodRecipe
 import ca.elina.recipesapp.util.NetworkResult
-import com.example.foody.models.FoodRecipe
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response

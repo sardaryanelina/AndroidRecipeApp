@@ -1,6 +1,6 @@
 package ca.elina.recipesapp.data.network
 
-import com.example.foody.models.FoodRecipe
+import ca.elina.recipesapp.models.FoodRecipe
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.QueryMap

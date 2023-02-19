@@ -1,4 +1,4 @@
-package com.example.foody.models
+package ca.elina.recipesapp.models
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
