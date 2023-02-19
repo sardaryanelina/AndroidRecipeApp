@@ -58,4 +58,5 @@
     <string name="notification_title">Checkout new dish recipes</string>
     <string name="notification_subtitle">Tap for more detail</string>
     <string name="floating_button_description">Floating button description</string>
+    <string name="vegan">Vegan</string>
 </resources>
