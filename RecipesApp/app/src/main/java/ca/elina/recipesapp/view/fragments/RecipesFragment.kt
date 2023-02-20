@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import ca.elina.recipesapp.adapters.RecipesAdapter
 import ca.elina.recipesapp.databinding.FragmentRecipesBinding
 import ca.elina.recipesapp.util.NetworkResult
+import ca.elina.recipesapp.util.observeOnce
 import ca.elina.recipesapp.viewmodel.MainViewModel
 import ca.elina.recipesapp.viewmodel.RecipesViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -51,7 +52,7 @@ class RecipesFragment : Fragment() {
 
     private fun readDatabase() {
         lifecycleScope.launch {
-            mainViewModel.readRecipes.observe(viewLifecycleOwner) { database ->
+            mainViewModel.readRecipes.observeOnce(viewLifecycleOwner) { database ->
                 if (database.isNotEmpty()) {
                     Log.d("RecipesFragment", "readDatabase called")
                     mAdapter.setData(database[0].foodRecipe)
