@@ -110,6 +110,7 @@ class RecipesFragment : Fragment() {
                 is NetworkResult.Loading -> {
                     showShimmerEffect()
                 }
+                else -> {showShimmerEffect()}
             }
         }
     }
