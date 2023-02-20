@@ -14,10 +14,11 @@ import ca.elina.recipesapp.util.Constants.Companion.QUERY_DIET
 import ca.elina.recipesapp.util.Constants.Companion.QUERY_FILL_INGREDIENTS
 import ca.elina.recipesapp.util.Constants.Companion.QUERY_NUMBER
 import ca.elina.recipesapp.util.Constants.Companion.QUERY_TYPE
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
+@HiltViewModel
 class RecipesViewModel @Inject constructor(
     application: Application,
     private val dataStoreRepository: DataStoreRepository
