@@ -44,8 +44,8 @@
     <color name="placeholderColor">@color/mediumGray</color>
     <color name="itemColor">@color/darker</color>
 
-    // Custom Chip Style
-    <color name="checkedChipBackgroundColor">#206200EA</color>
+    // Custom Chip Style colors for our filter chips
+    <color name="checkedChipBackgroundColor">#206200EA</color> // 20% opacity
     <color name="chipBackgroundColor">@color/lightGray</color>
     <color name="checkedChipTextColor">@color/primary_color</color>
     <color name="chipTextColor">@color/darkGray</color>

@@ -46,6 +46,8 @@
                 app:singleLine="true"
                 app:singleSelection="true">
 
+                <!-- Applied custom style for our filter chips
+                -> style="@style/CustomChipStyle"-->
                 <com.google.android.material.chip.Chip
                     android:id="@+id/main_course_chip"
                     style="@style/CustomChipStyle"
@@ -249,13 +251,16 @@
     <Button
         android:id="@+id/apply_btn"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="@dimen/_48sdp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/primary_color"
         android:text="@string/apply"
         android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_18sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
