@@ -1,4 +1,4 @@
-package ca.elina.recipesapp.view.fragments
+package ca.elina.recipesapp.view.fragments.recipes
 
 import android.os.Bundle
 import android.util.Log

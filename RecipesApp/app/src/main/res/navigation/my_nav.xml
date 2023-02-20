@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/recipesFragment"
-        android:name="ca.elina.recipesapp.view.fragments.RecipesFragment"
+        android:name="ca.elina.recipesapp.view.fragments.recipes.RecipesFragment"
         android:label="Recipes"
         tools:layout="@layout/fragment_recipes" />
     <fragment
         android:id="@+id/favoriteRecipesFragment"
-        android:name="ca.elina.recipesapp.view.fragments.FavoriteRecipesFragment"
+        android:name="ca.elina.recipesapp.view.fragments.favorites.FavoriteRecipesFragment"
         android:label="Favorites"
         tools:layout="@layout/fragment_favorite_recipes" />
     <fragment
         android:id="@+id/nearMeFragment"
-        android:name="ca.elina.recipesapp.view.fragments.NearMeFragment"
+        android:name="ca.elina.recipesapp.view.fragments.map.NearMeFragment"
         android:label="Near Me"
         tools:layout="@layout/fragment_near_me" />
 </navigation>
