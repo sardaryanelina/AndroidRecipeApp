@@ -23,9 +23,10 @@ import kotlinx.coroutines.launch
 class RecipesFragment : Fragment() {
     private lateinit var mainViewModel: MainViewModel
     private lateinit var recipesViewModel: RecipesViewModel
-
-    private lateinit var binding: FragmentRecipesBinding
     private val mAdapter by lazy { RecipesAdapter() }
+
+    private var _binding: FragmentRecipesBinding? = null
+    private val binding get() = _binding!!
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,9 +39,14 @@ class RecipesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentRecipesBinding.inflate(layoutInflater)
+        // Inflate the layout for this fragment
+        _binding = FragmentRecipesBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this // to be able use live data variables and objects
+        binding.mainViewModel = mainViewModel
+
         setupRecyclerView()
         readDatabase()
+
         return binding.root
     }
 
@@ -107,5 +113,12 @@ class RecipesFragment : Fragment() {
                 }
             }
         }
+    }
+
+    // with this we are going to avoid memory leaks
+    // whenever our recipes fragment is destroyed, binding will be set to null
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }
