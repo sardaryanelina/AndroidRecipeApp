@@ -17,6 +17,9 @@ class RecipesRowBinding {
         fun loadImageFromUrl(imageView: ImageView, imageUrl: String) {
             imageView.load(imageUrl) {
                 crossfade(600)
+
+                // in case there is no internet connection,
+                // images that are not loaded will be replaced by this error placeholder
                 error(R.drawable.ic_error_placeholder)
             }
         }
