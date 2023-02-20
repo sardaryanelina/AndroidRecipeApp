@@ -15,13 +15,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import ca.elina.recipesapp.R
 import ca.elina.recipesapp.adapters.RecipesAdapter
 import ca.elina.recipesapp.databinding.FragmentRecipesBinding
+import ca.elina.recipesapp.util.NetworkListener
 import ca.elina.recipesapp.util.NetworkResult
 import ca.elina.recipesapp.util.observeOnce
 import ca.elina.recipesapp.viewmodel.MainViewModel
 import ca.elina.recipesapp.viewmodel.RecipesViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 
+@ExperimentalCoroutinesApi
 @AndroidEntryPoint
 class RecipesFragment : Fragment() {
     private val args by navArgs<RecipesFragmentArgs>()
@@ -32,6 +35,8 @@ class RecipesFragment : Fragment() {
 
     private var _binding: FragmentRecipesBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var networkListener: NetworkListener
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,10 +55,28 @@ class RecipesFragment : Fragment() {
         binding.mainViewModel = mainViewModel
 
         setupRecyclerView()
-        readDatabase()
+
+        recipesViewModel.readBackOnline.observe(viewLifecycleOwner) {
+            recipesViewModel.backOnline = it
+        }
 
         binding.recipesFab.setOnClickListener {
-            findNavController().navigate(R.id.action_recipesFragment_to_recipesBottomSheet)
+            if (recipesViewModel.networkStatus) {
+                findNavController().navigate(R.id.action_recipesFragment_to_recipesBottomSheet)
+            } else {
+                recipesViewModel.showNetworkStatus()
+            }
+        }
+
+        lifecycleScope.launch {
+            networkListener = NetworkListener()
+            networkListener.checkNetworkAvailability(requireContext())
+                .collect { status ->
+                    Log.d("NetworkListener", status.toString())
+                    recipesViewModel.networkStatus = status
+                    recipesViewModel.showNetworkStatus()
+                    readDatabase()
+                }
         }
 
         return binding.root
@@ -110,7 +133,9 @@ class RecipesFragment : Fragment() {
                 is NetworkResult.Loading -> {
                     showShimmerEffect()
                 }
-                else -> {showShimmerEffect()}
+                else -> {
+                    showShimmerEffect()
+                }
             }
         }
     }
