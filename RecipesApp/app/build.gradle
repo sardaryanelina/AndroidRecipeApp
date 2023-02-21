@@ -144,7 +144,7 @@ dependencies {
     implementation 'com.todkars:shimmer-recyclerview:0.4.1'
 
     // Jsoup
-    implementation 'org.jsoup:jsoup:1.13.1'
+    implementation 'org.jsoup:jsoup:1.14.3'
 
     // Image Loading library - Coil
     // https://github.com/coil-kt/coil
