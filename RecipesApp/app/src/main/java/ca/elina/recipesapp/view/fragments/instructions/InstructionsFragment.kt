@@ -5,16 +5,36 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ca.elina.recipesapp.R
+import android.webkit.WebViewClient
+import ca.elina.recipesapp.models.Result
+import ca.elina.recipesapp.databinding.FragmentInstructionsBinding
+import ca.elina.recipesapp.util.Constants.Companion.RECIPE_RESULT_KEY
 
 class InstructionsFragment : Fragment() {
+
+    private var _binding: FragmentInstructionsBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_instructions, container, false)
+        _binding = FragmentInstructionsBinding.inflate(inflater, container, false)
+
+        val args = arguments
+        val myBundle: Result? = args?.getParcelable(RECIPE_RESULT_KEY)
+
+        binding.instructionsWebView.webViewClient = object : WebViewClient() {}
+        val websiteUrl: String = myBundle!!.sourceUrl
+        binding.instructionsWebView.loadUrl(websiteUrl)
+
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }
