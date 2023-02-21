@@ -2,7 +2,7 @@ package ca.elina.recipesapp.util
 
 import androidx.recyclerview.widget.DiffUtil
 
-class RecipesDiffUtil<T>(
+class RecipesDiffUtil<T>( // we use generic instead of Result here
     private val oldList: List<T>,
     private val newList: List<T>
 ) : DiffUtil.Callback() {
