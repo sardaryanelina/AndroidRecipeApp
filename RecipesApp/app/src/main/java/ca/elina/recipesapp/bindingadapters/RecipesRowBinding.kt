@@ -1,17 +1,36 @@
 package ca.elina.recipesapp.bindingadapters
 
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
+import androidx.navigation.findNavController
 import ca.elina.recipesapp.R
+import ca.elina.recipesapp.view.fragments.recipes.RecipesFragmentDirections
 import coil.load
-
+import java.lang.Exception
+import ca.elina.recipesapp.models.Result
 
 class RecipesRowBinding {
-
     companion object {
+        @BindingAdapter("onRecipeClickListener")
+        @JvmStatic
+        fun onRecipeClickListener(recipeRowLayout: ConstraintLayout, result: Result) {
+            Log.d("onRecipeClickListener", "CALLED")
+            recipeRowLayout.setOnClickListener {
+                try {
+                    val action =
+                        RecipesFragmentDirections.actionRecipesFragmentToDetailsActivity(result)
+                    recipeRowLayout.findNavController().navigate(action)
+                } catch (e: Exception) {
+                    Log.d("onRecipeClickListener", e.toString())
+                }
+            }
+        }
+
         @BindingAdapter("loadImageFromUrl")
         @JvmStatic
         fun loadImageFromUrl(imageView: ImageView, imageUrl: String) {
