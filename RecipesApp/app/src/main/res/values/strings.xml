@@ -59,6 +59,9 @@
     <string name="notification_subtitle">Tap for more detail</string>
     <string name="floating_button_description">Floating button description</string>
     <string name="search">Search</string>
+    <string name="cheap">Cheap</string>
+    <string name="healthy">Healthy</string>
+    <string name="dairy_free">Dairy Free</string>
 
     // Bottom Sheet
     <string name="meal_type">Meal Type</string>
@@ -86,4 +89,6 @@
     <string name="whole30">Whole30</string>
     <string name="diet_type">Diet Type</string>
     <string name="apply">Apply</string>
+    <string name="n_a">N/A</string>
+    <string name="_100">100</string>
 </resources>
