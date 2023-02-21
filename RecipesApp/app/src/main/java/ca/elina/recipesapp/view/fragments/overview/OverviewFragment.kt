@@ -11,6 +11,7 @@ import ca.elina.recipesapp.bindingadapters.RecipesRowBinding
 import ca.elina.recipesapp.databinding.FragmentOverviewBinding
 import ca.elina.recipesapp.models.Result
 import coil.load
+import org.jsoup.Jsoup
 
 class OverviewFragment : Fragment() {
 
@@ -31,7 +32,10 @@ class OverviewFragment : Fragment() {
         binding.titleTextView.text = myBundle?.title
         binding.likesTextView.text = myBundle?.aggregateLikes.toString()
         binding.timeTextView.text = myBundle?.readyInMinutes.toString()
-        binding.summaryTextView.text = myBundle?.summary
+        myBundle?.summary.let {
+            val summary = Jsoup.parse(it).text()
+            binding.summaryTextView.text = summary
+        }
 
         if(myBundle?.vegetarian == true){
             binding.vegetarianImageView.setColorFilter(ContextCompat.getColor(requireContext(), R.color.green))

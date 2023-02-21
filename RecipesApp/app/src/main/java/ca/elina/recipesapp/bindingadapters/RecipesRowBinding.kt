@@ -13,6 +13,7 @@ import ca.elina.recipesapp.view.fragments.recipes.RecipesFragmentDirections
 import coil.load
 import java.lang.Exception
 import ca.elina.recipesapp.models.Result
+import org.jsoup.Jsoup
 
 class RecipesRowBinding {
     companion object {
@@ -79,5 +80,15 @@ class RecipesRowBinding {
                 }
             }
         }
+
+        @BindingAdapter("parseHtml")
+        @JvmStatic
+        fun parseHtml(textView: TextView, description: String?){
+            if(description != null) {
+                val desc = Jsoup.parse(description).text()
+                textView.text = desc
+            }
+        }
+
     }
 }
