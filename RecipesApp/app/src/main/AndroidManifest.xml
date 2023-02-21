@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <!-- Define the permissions.-->
+    <!-- Define the permissions. -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <!--For WRITE EXTERNAL STORAGE warning you can have a look at this article I hope it will clear your doubt.
-        https://www.raywenderlich.com/9577211-scoped-storage-in-android-10-getting-started -->
+    <!--
+For WRITE EXTERNAL STORAGE warning you can have a look at this article I hope it will clear your doubt.
+        https://www.raywenderlich.com/9577211-scoped-storage-in-android-10-getting-started
+    -->
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="28" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera"
-        android:required="true" />
-    <!--Add the internet permission to access the API from the application. -->
-    <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" /> <!-- Add the internet permission to access the API from the application. -->
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -28,11 +30,16 @@
         android:theme="@style/Theme.RecipesApp"
         tools:targetApi="31">
         <activity
+            android:name=".view.activities.DetailsActivity"
+            android:exported="false"
+            android:label="Details"
+            android:theme="@style/DetailsActivityStyle"/>
+        <activity
             android:name=".view.activities.AddUpdateRecipeActivity"
+            android:configChanges="orientation"
             android:exported="false"
             android:label="Add Recipe"
-            android:theme="@style/Theme.RecipesApp.NoActionBar"
-            android:configChanges="orientation">
+            android:theme="@style/Theme.RecipesApp.NoActionBar">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -40,10 +47,10 @@
         <activity
             android:name=".view.activities.SplashActivity"
             android:exported="true"
-
             android:theme="@style/Theme.RecipesApp.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
