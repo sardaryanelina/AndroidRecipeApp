@@ -18,6 +18,9 @@ plugins {
     // Dagger / Hilt
     id 'com.google.dagger.hilt.android'
     id 'dagger.hilt.android.plugin'
+
+    // Google Map
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
@@ -152,6 +155,9 @@ dependencies {
 
     //androidx.fragment dependencies
     implementation "androidx.fragment:fragment-ktx:1.5.5"
+
+    // Google Map
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
 }
 
 

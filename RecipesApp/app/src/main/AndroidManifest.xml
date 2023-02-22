@@ -28,13 +28,16 @@ For WRITE EXTERNAL STORAGE warning you can have a look at this article I hope it
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RecipesApp"
-        tools:targetApi="31"
-        android:usesCleartextTraffic="true">
+        tools:targetApi="31">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCGn9yLi87sBNtDYi0Y7T2oQAm90SdseTU" />
+
         <activity
             android:name=".view.activities.DetailsActivity"
             android:exported="false"
             android:label="Details"
-            android:theme="@style/DetailsActivityStyle"/>
+            android:theme="@style/DetailsActivityStyle" />
         <activity
             android:name=".view.activities.AddUpdateRecipeActivity"
             android:configChanges="orientation"
