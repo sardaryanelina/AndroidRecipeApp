@@ -2,6 +2,7 @@ package ca.elina.recipesapp.view.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
@@ -18,6 +19,7 @@ import ca.elina.recipesapp.view.fragments.overview.OverviewFragment
 import ca.elina.recipesapp.viewmodel.MainViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import java.lang.Exception
 
 @AndroidEntryPoint
 class DetailsActivity : AppCompatActivity() {
@@ -26,6 +28,10 @@ class DetailsActivity : AppCompatActivity() {
     private val mainViewModel: MainViewModel by viewModels()
 
     private lateinit var binding: ActivityDetailsBinding
+
+    private lateinit var menuItem: MenuItem
+    private var recipeSaved = false
+    private var savedRecipeId = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailsBinding.inflate(layoutInflater)
@@ -61,6 +67,8 @@ class DetailsActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.details_menu, menu)
+        menuItem = menu!!.findItem(R.id.save_to_favorites_menu)
+        checkSavedRecipes(menuItem)
         return true
     }
 
@@ -96,5 +104,21 @@ class DetailsActivity : AppCompatActivity() {
             Snackbar.LENGTH_SHORT
         ).setAction("Okay") {}
             .show()
+    }
+
+    private fun checkSavedRecipes(menuItem: MenuItem) {
+        mainViewModel.readFavoriteRecipes.observe(this) { favoritesEntity ->
+            try {
+                for (savedRecipe in favoritesEntity) {
+                    if (savedRecipe.result.recipeId == args.result.recipeId) {
+                        changeMenuItemColor(menuItem, R.color.yellow)
+                        savedRecipeId = savedRecipe.id
+                        recipeSaved = true
+                    }
+                }
+            } catch (e: Exception) {
+                Log.d("DetailsActivity", e.message.toString())
+            }
+        }
     }
 }
