@@ -4,19 +4,26 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.navArgs
 import ca.elina.recipesapp.R
 import ca.elina.recipesapp.adapters.PagerAdapter
+import ca.elina.recipesapp.data.database.entities.FavoritesEntity
 import ca.elina.recipesapp.databinding.ActivityDetailsBinding
 import ca.elina.recipesapp.view.fragments.ingredients.IngredientsFragment
 import ca.elina.recipesapp.view.fragments.instructions.InstructionsFragment
 import ca.elina.recipesapp.view.fragments.overview.OverviewFragment
+import ca.elina.recipesapp.viewmodel.MainViewModel
+import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailsActivity : AppCompatActivity() {
 
     private val args by navArgs<DetailsActivityArgs>()
+    private val mainViewModel: MainViewModel by viewModels()
 
     private lateinit var binding: ActivityDetailsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,7 +68,33 @@ class DetailsActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
             finish()
+        } else if (item.itemId == R.id.save_to_favorites_menu) {
+            saveToFavorites(item)
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun saveToFavorites(item: MenuItem) {
+        val favoritesEntity =
+            FavoritesEntity(
+                0,
+                args.result
+            )
+        mainViewModel.insertFavoriteRecipe(favoritesEntity)
+        changeMenuItemColor(item, R.color.yellow)
+        showSnackBar("Recipe saved.")
+    }
+
+    private fun changeMenuItemColor(item: MenuItem, color: Int) {
+        item.icon?.setTint(ContextCompat.getColor(this, color))
+    }
+
+    private fun showSnackBar(message: String) {
+        Snackbar.make(
+            binding.detailsLayout,
+            message,
+            Snackbar.LENGTH_SHORT
+        ).setAction("Okay") {}
+            .show()
     }
 }
