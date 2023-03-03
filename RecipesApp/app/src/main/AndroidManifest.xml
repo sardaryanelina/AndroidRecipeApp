@@ -20,6 +20,9 @@ For WRITE EXTERNAL STORAGE warning you can have a look at this article I hope it
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+<!-- map-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -44,7 +47,7 @@ For WRITE EXTERNAL STORAGE warning you can have a look at this article I hope it
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}" />
+            android:value="AIzaSyCGn9yLi87sBNtDYi0Y7T2oQAm90SdseTU" />
         <activity
             android:name=".view.activities.DetailsActivity"
             android:exported="false"
