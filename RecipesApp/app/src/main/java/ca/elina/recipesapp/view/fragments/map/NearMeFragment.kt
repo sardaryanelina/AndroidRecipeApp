@@ -110,6 +110,11 @@ class NearMeFragment : Fragment(), OnMapReadyCallback, LocationListener,
     }
 
     private fun clearEditTextSearch() {
+        Toast.makeText(
+            context, "Your search: " + binding.inputLocation.text.toString().trim(),
+            Toast.LENGTH_LONG
+        ).show()
+
         // update Edit text by clearing the input and adding hint "Search"
         binding.inputLocation.setText("")
         binding.inputLocation.hint = getText(R.string.search)
