@@ -1,5 +1,6 @@
 package ca.elina.recipesapp.view.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -32,6 +33,8 @@ class DetailsActivity : AppCompatActivity() {
     private lateinit var menuItem: MenuItem
     private var recipeSaved = false
     private var savedRecipeId = 0
+
+    private var recipeShare = "No Recipe"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailsBinding.inflate(layoutInflater)
@@ -80,6 +83,16 @@ class DetailsActivity : AppCompatActivity() {
             saveToFavorites(item)
         } else if (item.itemId == R.id.save_to_favorites_menu && recipeSaved) {
             removeFromFavorites(item)
+        } else if (item.itemId == R.id.action_share_recipe) {
+
+            recipeShare = args.result.sourceUrl
+
+            val shareIntent = Intent().apply {
+                this.action = Intent.ACTION_SEND
+                this.putExtra(Intent.EXTRA_TEXT, recipeShare)
+                this.type = "text/plain"
+            }
+            startActivity(shareIntent)
         }
         return super.onOptionsItemSelected(item)
     }
