@@ -23,7 +23,6 @@
         android:layout_marginEnd="8dp"
         android:src="@drawable/ic_search"
         app:layout_constraintBottom_toBottomOf="@+id/inputLocation"
-        android:onClick="searchLocation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
