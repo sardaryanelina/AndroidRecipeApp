@@ -56,10 +56,10 @@ class NearMeFragment : Fragment(), OnMapReadyCallback, LocationListener,
 
     // Search Google Map
     private var mMap: GoogleMap? = null
-    internal lateinit var mLastLocation: Location
-    internal var mCurrLocationMarker: Marker? = null
-    internal var mGoogleApiClient: GoogleApiClient? = null
-    internal lateinit var mLocationRequest: LocationRequest
+    private lateinit var mLastLocation: Location
+    private var mCurrLocationMarker: Marker? = null
+    private var mGoogleApiClient: GoogleApiClient? = null
+    private lateinit var mLocationRequest: LocationRequest
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -73,6 +73,7 @@ class NearMeFragment : Fragment(), OnMapReadyCallback, LocationListener,
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         getUserCurrentLocation()
 
         binding.imageViewSearch.setOnClickListener {
@@ -98,6 +99,7 @@ class NearMeFragment : Fragment(), OnMapReadyCallback, LocationListener,
                         mMap!!.animateCamera(CameraUpdateFactory.newLatLng(latLng))
                     }
                 }
+                clearEditTextSearch()
             }
         }
 
@@ -105,6 +107,12 @@ class NearMeFragment : Fragment(), OnMapReadyCallback, LocationListener,
             childFragmentManager.findFragmentById(R.id.google_map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
+    }
+
+    private fun clearEditTextSearch() {
+        // update Edit text by clearing the input and adding hint "Search"
+        binding.inputLocation.setText("")
+        binding.inputLocation.hint = getText(R.string.search)
     }
 
     private fun getUserCurrentLocation() {
