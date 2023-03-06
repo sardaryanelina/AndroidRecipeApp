@@ -34,7 +34,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -74,9 +74,14 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    // Test
+    // Espresso test -> https://developer.android.com/training/testing/espresso
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation 'androidx.test:rules:1.5.0'
 
     // SDP(scalable density pixels) - A scalable size unit library
     // https://github.com/intuit/sdp
@@ -96,7 +101,7 @@ dependencies {
 
     // Material Components
     implementation 'com.google.android.material:material:1.8.0'
-    implementation 'com.google.android.material:material:1.9.0-alpha01'
+    implementation 'com.google.android.material:material:1.9.0-alpha02'
 
     // Navigation Component
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
@@ -110,7 +115,7 @@ dependencies {
 
     // Data binding
     kapt "com.android.databinding:compiler:3.2.0-alpha10"
-    kapt "androidx.databinding:databinding-common:7.4.1"
+    kapt "androidx.databinding:databinding-common:7.4.2"
 
     // DataStore
     implementation "androidx.datastore:datastore-preferences:1.1.0-alpha01"
@@ -123,8 +128,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
     //Dagger - Hilt
-    implementation "com.google.dagger:hilt-android:2.44"
-    kapt "com.google.dagger:hilt-compiler:2.44"
+    implementation "com.google.dagger:hilt-android:2.44.2"
+    kapt "com.google.dagger:hilt-compiler:2.44.2"
 
     kapt "androidx.hilt:hilt-compiler:1.0.0"
 
@@ -139,7 +144,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
 
     // Gson
-    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'com.google.code.gson:gson:2.10'
 
     // Shimmer - to add a shimmer effect
     // https://github.com/facebook/shimmer-android
